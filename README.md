@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 # Piccolo Engine (formerly Pilot Engine)
 
 <p align="center">
