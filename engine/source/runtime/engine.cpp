@@ -84,7 +84,7 @@ namespace Piccolo
 
 
         g_runtime_global_context.m_window_system->setTitle(
-            std::string("Piccolo - " + std::to_string(getFPS()) + " FPS").c_str());
+            std::string("ck::Piccolo - " + std::to_string(getFPS()) + " FPS").c_str());
 
         const bool should_window_close = g_runtime_global_context.m_window_system->shouldClose();
         return !should_window_close;
