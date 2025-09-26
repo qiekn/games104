@@ -7,6 +7,9 @@ CPM_*.cmake
 *.patch
 !engine/3rdparty/JoltPhysics/Build
 
+# imgui config
+imgui.ini
+
 # Visual Studio
 CMakeSettings.json
 
