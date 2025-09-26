@@ -10,7 +10,9 @@
 struct dynamic_object {
 	std::unordered_map<std::string, sol::object> entries;
 
-	void dynamic_set(std::string key, sol::stack_object value) {
+	// Uses main_object since we may get objects from coroutine
+	// threads that might die before us.
+	void dynamic_set(std::string key, sol::main_object value) {
 		auto it = entries.find(key);
 		if (it == entries.cend()) {
 			entries.insert(
@@ -78,7 +80,7 @@ assert(value == 15)
 	// does not work on d1: 'run' wasn't added to d1, only d2
 	auto script_result = lua.safe_script(
 	     "local value = d1:run(5)", sol::script_pass_on_error);
-	sol_c_assert(!script_result.valid());
+	SOL_ASSERT(!script_result.valid());
 	sol::error err = script_result;
 	std::cout << "received expected error: " << err.what()
 	          << std::endl;
